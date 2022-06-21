@@ -10,7 +10,6 @@
                     </th>
                     <td>
                         <input type="text" name="name" id="name" class="regular-text" value="">
-                       
                     </td>
                 </tr>
                 <tr>

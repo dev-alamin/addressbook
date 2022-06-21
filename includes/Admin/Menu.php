@@ -18,9 +18,11 @@ class Menu{
         $parent_slug = 'wedevs-academy';
         $capability  = 'manage_options';
 
-        add_menu_page(__( 'weDevs Academy', 'wedevs-academy' ), __( 'Academy', 'wedevs-academy'), 'manage_options', $parent_slug, [ $this->addressbook, 'plugin_page'], 'dashicons-welcome-learn-more' );
+        $hook = add_menu_page(__( 'weDevs Academy', 'wedevs-academy' ), __( 'Academy', 'wedevs-academy'), 'manage_options', $parent_slug, [ $this->addressbook, 'plugin_page'], 'dashicons-welcome-learn-more' );
         add_submenu_page( $parent_slug, __('Address Book', 'wedevs-academy'), __( 'Address Book', 'wedevs-academy'), $capability, $parent_slug , [ $this->addressbook, 'plugin_page' ]);
         add_submenu_page( $parent_slug, __('Settings', 'wedevs-academy'), __( 'settings', 'wedevs-academy'), $capability, 'wedevs-academy-settings' , [ $this, 'settings_page' ]);
+
+        add_action( 'admin_head-' . $hook, [ $this, 'enqueue_assets']);
 
     }
 
@@ -32,6 +34,10 @@ class Menu{
 
     public function settings_page(){
         echo 'Hello from settings page'; 
+    }
+
+    public function enqueue_assets() {
+        wp_enqueue_style( 'academy-admin-style' );
     }
 }
 

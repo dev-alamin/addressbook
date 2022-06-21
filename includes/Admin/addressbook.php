@@ -1,7 +1,8 @@
 <?php 
 namespace Wedevs\Academy\Admin;
 
-use Wedevs\Academy\Traits\Form_Errors;
+use Wedevs\Academy\Traits\Form_Error;
+
 
 /**
  * Addressbook Handler class
@@ -9,7 +10,7 @@ use Wedevs\Academy\Traits\Form_Errors;
 
  class Addressbook {
 
-    // use Form_Errors;
+    // use Form_Error;
 
     public function plugin_page(){
         $action = isset( $_GET['action'] ) ? $_GET['action'] : 'list';

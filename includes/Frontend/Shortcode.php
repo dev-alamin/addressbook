@@ -21,6 +21,8 @@ namespace Wedevs\Academy\Frontend;
      */
 
     public function render_shortcode( $atts, $content = '' ){
-        return 'Hello from shortcode';
+        wp_enqueue_style( 'academy-style' );
+        wp_enqueue_script( 'academy-script' );
+        return '<div class="academy-shortcode">Hello from shortcode</div>';
     }
  }
